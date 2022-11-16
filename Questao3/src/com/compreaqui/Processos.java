@@ -53,14 +53,12 @@ public class Processos {
     }
 
     public Cliente buscarCliente(String nome) {
-        Cliente teste = new Cliente();
-        teste = null;
         for (int i = 0; i < plataforma.getListaCliente().size(); i++) {
             if (plataforma.getListaCliente().get(i).getNome().equals(nome)) {
-                teste = plataforma.getListaCliente().get(i);
+                return plataforma.getListaCliente().get(i);
             }
         }
-        return teste;
+        return null;
     }
 
     public Produto buscarProduto(String nome) {
