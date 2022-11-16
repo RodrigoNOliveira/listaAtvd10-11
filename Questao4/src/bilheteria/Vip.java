@@ -10,7 +10,7 @@ public class Vip extends Ingresso{
 
     public Vip(double valor, double valorAdicional) {
         super(valor);
-        this.valor = retorneValor();
+        this.valor = valor;
         this.valorAdicional = valorAdicional;
     }
 
@@ -20,8 +20,7 @@ public class Vip extends Ingresso{
     }
     
     public double retorneValor(){
-        
-        return this.valor = this.valor + valorAdicional;
+        return this.valor += valorAdicional;
     }
 
     public double getValorAdicional() {

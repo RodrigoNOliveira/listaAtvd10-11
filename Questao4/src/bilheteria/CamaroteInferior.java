@@ -15,7 +15,7 @@ public class CamaroteInferior extends Vip{
 
     public CamaroteInferior(double valor, double valorAdicional, String localizacao) {
         super(valor, valorAdicional);
-        this.valor = retorneValor();
+        this.valor = valor;
         this.localizacao = localizacao;
     }
 

@@ -18,13 +18,11 @@ public class CamaroteSuperior extends Vip{
     }
 
 
-
     @Override
-    public double retorneValor() {
-       
-        return super.retorneValor()+adicional;
+    public final double retorneValor() {
+        super.retorneValor();
+        return this.valor += adicional;
     }
-
 
 
     public String getLocalizacao() {
