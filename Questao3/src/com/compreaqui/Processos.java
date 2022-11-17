@@ -52,28 +52,40 @@ public class Processos {
         plataforma.getListaProdutos().add(produto);
     }
 
-    public Cliente buscarCliente(String nome) {
+    public Cliente buscarCliente() {
+        System.out.print("Insira o nome do cliente: ");
+        String nome = scanner.nextLine();
+        boolean existe = false;
         for (int i = 0; i < plataforma.getListaCliente().size(); i++) {
             if (plataforma.getListaCliente().get(i).getNome().equals(nome)) {
+                existe = true;
                 return plataforma.getListaCliente().get(i);
+                
             }
+        }
+        if (existe == false){
+            System.out.println("Cliente não encontrado");
         }
         return null;
     }
 
     public Produto buscarProduto(String nome) {
+        boolean existe = false;
         for (int i = 0; i < plataforma.getListaProdutos().size(); i++) {
             if (plataforma.getListaProdutos().get(i).getNome().equals(nome)) {
+                existe = true;
                 return plataforma.getListaProdutos().get(i);
             }
+        }
+        if (existe == false){
+            System.out.println("Produto não encontrado");
         }
         return null;
     }
 
     public void adcProdutoNoCarrinho() {
-        System.out.print("Insira o nome do cliente: ");
-        String nome = scanner.nextLine();
-        cliente = buscarCliente(nome);
+        String nome;
+        cliente = buscarCliente();
         if (cliente != null) {
             System.out.print("Insira o nome do produto: ");
             nome = scanner.nextLine();
@@ -90,9 +102,8 @@ public class Processos {
     }
 
     public void rmvProdutoNoCarrinho() {
-        System.out.print("Insira o nome do cliente: ");
-        String nome = scanner.nextLine();
-        cliente = buscarCliente(nome);
+        String nome;
+        cliente = buscarCliente();
         if (cliente != null) {
             System.out.print("Insira o nome do produto: ");
             nome = scanner.nextLine();
@@ -108,9 +119,7 @@ public class Processos {
 
     public void notaFiscal() {
         double valorTotal = 0, valorItem = 0;
-        System.out.print("Insira o nome do cliente: ");
-        String nome = scanner.nextLine();
-        cliente = buscarCliente(nome);
+        cliente = buscarCliente();
         if (cliente != null) {
             StringBuilder msg = new StringBuilder();
             msg.append("");
@@ -171,9 +180,7 @@ public class Processos {
                     cadastrarProduto();
                     break;
                 case 3:
-                    System.out.print("Insira o nome do cliente: ");
-                    String nome = scanner.nextLine();
-                    System.out.println(buscarCliente(nome));
+                    System.out.println(buscarCliente());
                     break;
                 case 4:
                     adcProdutoNoCarrinho();
